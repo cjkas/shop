@@ -4,13 +4,14 @@ import com.slaw.shop.service.CartEntity;
 import lombok.Value;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
 @Value
 public class Cart {
     Long id;
-    Collection<Item> items;
+    List<Item> items;
 
     public static Cart from(CartEntity cartEntity) {
         return new Cart(cartEntity.getId(), Stream.ofNullable(cartEntity.getItems())

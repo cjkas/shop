@@ -9,5 +9,5 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class CartNotFoundException extends RuntimeException {
-    private final UUID cartId;
+    private final Long cartId;
 }

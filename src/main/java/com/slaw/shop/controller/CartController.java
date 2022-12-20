@@ -3,29 +3,20 @@ package com.slaw.shop.controller;
 import com.slaw.shop.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@RestController("/carts")
+@RestController
 public class CartController {
 
     private final CartService cartService;
 
-    @GetMapping
-    public Cart cart(@RequestParam UUID cartId) {
-        return cartService.findByCartId(cartId).orElseThrow(() -> new CartNotFoundException(cartId));
-    }
-
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
+    @PostMapping(value = "/cart")
     public Cart save(NewCart newCart) {
         return cartService.save(newCart);
     }
 
-    @DeleteMapping
-    public void removeCartItem(@RequestParam UUID itemId) {
-        cartService.removeCartItem(itemId);
-    }
 }
