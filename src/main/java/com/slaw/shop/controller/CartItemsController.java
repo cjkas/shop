@@ -1,5 +1,6 @@
 package com.slaw.shop.controller;
 
+import com.slaw.shop.domain.Item;
 import com.slaw.shop.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,14 @@ public class CartItemsController {
 
     private final CartService cartService;
 
+    @PutMapping("/cart/{cartId}/items")
+    public void addCartItem(@PathVariable Long cartId, @RequestBody NewItem newItem) {
+        cartService.addCartItem(cartId, newItem);
+    }
+
     @GetMapping("/cart/{cartId}/items")
-    public List<Item> cart(@PathVariable Long cartId) {
-        return cartService.findByCartId(cartId).map(Cart::getItems).orElseThrow(() -> new CartNotFoundException(cartId));
+    public List<Item> cartItems(@PathVariable Long cartId) {
+        return cartService.findByCartId(cartId).getItems();
     }
 
     @DeleteMapping("/cart/{cartId}/items/{itemId}")

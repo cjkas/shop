@@ -1,9 +1,7 @@
-package com.slaw.shop.controller;
+package com.slaw.shop.domain;
 
 import com.slaw.shop.service.ItemEntity;
 import lombok.Value;
-
-import java.util.UUID;
 
 @Value
 public class Item {

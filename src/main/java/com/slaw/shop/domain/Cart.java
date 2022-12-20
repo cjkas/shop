@@ -1,11 +1,10 @@
-package com.slaw.shop.controller;
+package com.slaw.shop.domain;
 
 import com.slaw.shop.service.CartEntity;
 import lombok.Value;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Stream;
 
 @Value

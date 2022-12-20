@@ -1,8 +1,15 @@
 package com.slaw.shop.controller;
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.Value;
 
-@Value
+@NoArgsConstructor
+@Getter
+@Setter
 public class NewItem {
-    Long itemId;
+    @NotBlank
+    private Long itemId;
 }
