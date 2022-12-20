@@ -14,8 +14,8 @@ public class CartItemsController {
     private final CartService cartService;
 
     @PutMapping("/cart/{cartId}/items")
-    public void addCartItem(@PathVariable Long cartId, @RequestBody NewItem newItem) {
-        cartService.addCartItem(cartId, newItem);
+    public Item addCartItem(@PathVariable Long cartId, @RequestBody NewItem newItem) {
+        return cartService.addCartItem(cartId, newItem);
     }
 
     @GetMapping("/cart/{cartId}/items")
