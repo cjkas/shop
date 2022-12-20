@@ -23,7 +23,7 @@ public class NewCart {
     List<NewItem> items;
 
     public Cart toDomain() {
-        var items = Stream.ofNullable(this.items).flatMap(Collection::stream).map(i -> new Item(i.getItemId())).toList();
+        var items = Stream.ofNullable(this.items).flatMap(Collection::stream).map(i -> new Item(null, i.getProductId())).toList();
         return new Cart(null, items);
     }
 
@@ -32,7 +32,7 @@ public class NewCart {
     @Setter
     public static class NewItem {
         @NotBlank
-        Long itemId;
+        Long productId;
     }
 
 

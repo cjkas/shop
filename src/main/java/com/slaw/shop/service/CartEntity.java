@@ -33,7 +33,7 @@ public class CartEntity {
         cartEntity.setItems(Stream.ofNullable(newCart.getItems())
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
-                .map(newItem -> new ItemEntity(null, cartEntity, newItem.getItemId())
+                .map(newItem -> new ItemEntity(null, cartEntity, newItem.getProductId())
                 ).toList());
         return cartEntity;
     }

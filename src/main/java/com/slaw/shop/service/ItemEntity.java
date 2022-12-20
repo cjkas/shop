@@ -23,6 +23,6 @@ public class ItemEntity {
     private CartEntity cart;
 
     @NotNull
-    private Long itemId;
+    private Long productId;
 
 }

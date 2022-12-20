@@ -11,5 +11,5 @@ import lombok.Value;
 @Setter
 public class NewItem {
     @NotBlank
-    private Long itemId;
+    private Long productId;
 }

@@ -10,6 +10,6 @@ public interface ItemRepository extends JpaRepository<ItemEntity, Long> {
 
 
     @Modifying
-    @Query("Delete from ItemEntity e where e.itemId = :itemId and e.cart.id = :cartId")
+    @Query("Delete from ItemEntity e where e.id = :itemId and e.cart.id = :cartId")
     void deleteCartItem(Long cartId, Long itemId);
 }

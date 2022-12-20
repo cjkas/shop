@@ -5,9 +5,10 @@ import lombok.Value;
 
 @Value
 public class Item {
-    Long itemId;
+    Long id;
+    Long productId;
 
     public static Item from(ItemEntity itemEntity) {
-        return new Item(itemEntity.getItemId());
+        return new Item(itemEntity.getId(), itemEntity.getProductId());
     }
 }
